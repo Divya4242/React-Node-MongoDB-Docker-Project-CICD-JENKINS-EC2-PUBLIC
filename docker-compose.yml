@@ -3,7 +3,7 @@ version: '3.1'
 services:
   #Frontend Service
   client:
-    container_name: frontend_container
+    container_name: client
     build: 
       context: ./client
     ports:
@@ -12,7 +12,7 @@ services:
       - server
 
   server:
-    container_name: backend_container
+    container_name: server
     build: 
       context: ./server
     ports:
