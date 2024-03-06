@@ -3,5 +3,5 @@
 ## Simultaneously, the Node.js backend is Dockerized, pushed to Docker Hub, and then pulled and run on the EC2 machine. 
 ## This streamlined workflow ensures efficient continuous integration and delivery, allowing for rapid updates and deployments in response to changes in the GitHub repository.
 
-# Required Plugins: SSH Agent plugin, node js, Docker pipeline
-# Create Credentials: dockerhub, github
+### Required Plugins: SSH Agent plugin, node js, Docker pipeline
+### Create Credentials: dockerhub, github
