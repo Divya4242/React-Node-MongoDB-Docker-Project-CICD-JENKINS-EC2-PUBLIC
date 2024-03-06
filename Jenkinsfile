@@ -38,10 +38,7 @@ pipeline {
         stage('Transfer Frotend Build to EC2') {
             steps {
                 script {
-                    // Use scp to copy the entire folder to the EC2 instance
-                 // sh "scp -i ${PRIVATE_KEY} -r /var/lib/jenkins/workspace/frontend-backend-deploy/client/build ${EC2_USER}@${EC2_HOST}:/var/www"
-                  // Optional: Use rsyn to copy the entire folder to the EC2 instance (not working)
-                // sh '''
+                      // Optional: Use rsyn to copy the entire folder to the EC2 instance (not working)
                     sh "rsync -avrx -e 'ssh -i ${PRIVATE_KEY} -o StrictHostKeyChecking=no' --delete /var/lib/jenkins/workspace/frontend-backend-deploy/client/build ${EC2_USER}@${EC2_HOST}:/var/www"                  
                 }
             }
@@ -62,7 +59,9 @@ pipeline {
         stage('Run Docker Image on AWS EC2') {
             steps {
                 script {
+                    // This command will delete any contianer running on 5000 so this new docker container run easily.
                     def commands = """
+                        docker rm -f $(docker ps -q --filter "publish=5000/tcp")
                         docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackend
                     """
                     // SSH into EC2 instance and pull Docker image
