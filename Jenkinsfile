@@ -61,7 +61,7 @@ pipeline {
                 script {
                     // This command will delete any contianer running on 5000 so this new docker container run easily.
                     def commands = """
-                        docker rm -f $(docker ps -q --filter "publish=5000/tcp")
+                        docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
                         docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackend
                     """
                     // SSH into EC2 instance and pull Docker image
