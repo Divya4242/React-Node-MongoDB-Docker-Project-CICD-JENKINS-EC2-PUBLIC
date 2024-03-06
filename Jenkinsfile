@@ -24,7 +24,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the source code from your Git repository
-                git branch: 'main', url: 'https://github.com/Divya4242/Jenkins-React-Node.git'
+                git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2.git'
             }
         }
 
