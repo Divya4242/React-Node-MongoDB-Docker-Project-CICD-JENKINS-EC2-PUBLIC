@@ -38,8 +38,8 @@ pipeline {
         stage('Transfer Frotend Build to EC2') {
             steps {
                 script {
-                      // Optional: Use rsyn to copy the entire folder to the EC2 instance (not working)
-                    sh "rsync -avz -e 'ssh -i ${PRIVATE_KEY} -o StrictHostKeyChecking=no' --delete /var/lib/jenkins/workspace/frontend-backend-deploy/client/build ${EC2_USER}@${EC2_HOST}:/var/www"                  
+                      // Optional: Use rsyn to copy the entire folder to the EC2 instance.
+                    sh "rsync -avrx -e 'ssh -i ${PRIVATE_KEY} -o StrictHostKeyChecking=no' --delete /var/lib/jenkins/workspace/frontend-backend-deploy/client/build ${EC2_USER}@${EC2_HOST}:/var/www"                  
                 }
             }
         }
