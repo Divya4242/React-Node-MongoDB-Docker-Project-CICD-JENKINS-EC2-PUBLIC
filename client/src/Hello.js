@@ -43,7 +43,7 @@ const Hello = () => {
         onClick={(e) => {
           sum(e);
         }}
-        className="btn btn-primary btn-block mb-2 "
+        className="btn btn-primary btn-block mb-3 "
       >
         Sum
       </button>
