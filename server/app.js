@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 var cors = require('cors')
-app.use(cors({
-    origin: '*'
+app.use(cors({                                                                                                                 
+    origin: [ 'http://65.0.87.100', 'http://65.0.87.100:3000' ,'*' ]                                                
 }))
 
 app.use(express.json());
