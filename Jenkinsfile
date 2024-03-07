@@ -9,7 +9,7 @@ pipeline {
     agent any
     tools {
         nodejs "Node-21"
-        git 'Default'
+        git 'git'
     }
     environment {
         // Define AWS EC2 details
