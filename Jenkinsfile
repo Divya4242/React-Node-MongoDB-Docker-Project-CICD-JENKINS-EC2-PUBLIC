@@ -25,7 +25,7 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                    git credentialsId: 'github-jenkins-private-repo', url: 'git@github.com:Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2.git'
+                    git credentialsId: 'jenkins-github-private-repo-ssh-key', url: 'git@github.com:Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2.git'
                 }
             }
         }
