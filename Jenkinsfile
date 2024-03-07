@@ -26,7 +26,7 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                    git credentialsId: 'jenkins-github-private-repo-ssh-key', url: 'git@github.com:Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2.git', timeout: 30
+                    git branch: 'main', credentialsId: 'jenkins-github-private-repo-ssh-key', url: 'git@github.com:Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2.git', timeout: 30
                 }
             }
         }
