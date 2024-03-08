@@ -36,7 +36,7 @@ pipeline {
             steps {
                 // Build React app
                 // sh 'cd client && npm install && npm run build && cd build && pwd'
-                sh 'pwd'
+                sh 'pwd && ls'
             }
         }
         
