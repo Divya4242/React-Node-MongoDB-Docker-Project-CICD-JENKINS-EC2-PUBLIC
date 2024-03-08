@@ -75,7 +75,7 @@ pipeline {
                 }
             }
         }
-        
+    }
     post {
         success {
             echo 'Pipeline succeeded. Node.js app deployed to AWS EC2.'
