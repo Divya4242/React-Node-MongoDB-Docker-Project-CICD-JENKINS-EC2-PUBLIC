@@ -25,7 +25,8 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                    git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', ref: 'refs/tags/v0.1.0', timeout: 30
+                    // git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', ref: 'refs/tags/v0.1.0', timeout: 30
+                    sh 'curl -LJO -H 'Authorization: token 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' https://api.github.com/repos/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/releases/tags/v0.1.0/assets/v0.1.0.zip'                   
                 }
             }
         }
@@ -33,45 +34,46 @@ pipeline {
         stage('Build React App') {
             steps {
                 // Build React app
-                sh 'cd client && npm install && npm run build && cd build && pwd'
+                // sh 'cd client && npm install && npm run build && cd build && pwd'
+                sh 'pwd'
             }
         }
         
-        stage('Transfer Frotend Build to EC2') {
-            steps {
-                script {
-                      // Optional: Use rsyn to copy the entire folder to the EC2 instance.
-                    sh "rsync -avrx -e 'ssh -i ${PRIVATE_KEY} -o StrictHostKeyChecking=no' --delete /var/lib/jenkins/workspace/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/client/build ${EC2_USER}@${EC2_HOST}:/var/www"                  
-                }
-            }
-        }
+        // stage('Transfer Frotend Build to EC2') {
+        //     steps {
+        //         script {
+        //               // Optional: Use rsyn to copy the entire folder to the EC2 instance.
+        //             sh "rsync -avrx -e 'ssh -i ${PRIVATE_KEY} -o StrictHostKeyChecking=no' --delete /var/lib/jenkins/workspace/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/client/build ${EC2_USER}@${EC2_HOST}:/var/www"                  
+        //         }
+        //     }
+        // }
         
-        stage('Build and push Docker Image') {
-            steps {
-                script {
-                     // Build Docker image for Node Backend
-                    dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackend", " ./server")
-                    docker.withRegistry( '', 'docker-id' ) {  
-                        dockerImage.push("nodebackend")
-                    }
-                }
-            }
-        }        
+        // stage('Build and push Docker Image') {
+        //     steps {
+        //         script {
+        //              // Build Docker image for Node Backend
+        //             dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackend", " ./server")
+        //             docker.withRegistry( '', 'docker-id' ) {  
+        //                 dockerImage.push("nodebackend")
+        //             }
+        //         }
+        //     }
+        // }        
         
-        stage('Run Docker Image on AWS EC2') {
-            steps {
-                script {
-                    // This command will delete any contianer running on 5000 so this new docker container run easily.
-                    def commands = """
-                        docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
-                        docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackend
-                    """
-                    // SSH into EC2 instance and pull Docker image
-                    sshagent(['ec2-ssh']) {
-                    sh "ssh -o StrictHostKeyChecking=no -i ${PRIVATE_KEY} ${EC2_USER}@${EC2_HOST} '${commands}'"
-                    }
-                }
-            }
+        // stage('Run Docker Image on AWS EC2') {
+        //     steps {
+        //         script {
+        //             // This command will delete any contianer running on 5000 so this new docker container run easily.
+        //             def commands = """
+        //                 docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
+        //                 docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackend
+        //             """
+        //             // SSH into EC2 instance and pull Docker image
+        //             sshagent(['ec2-ssh']) {
+        //             sh "ssh -o StrictHostKeyChecking=no -i ${PRIVATE_KEY} ${EC2_USER}@${EC2_HOST} '${commands}'"
+        //             }
+        //         }
+        //     }
         }
     }
         
