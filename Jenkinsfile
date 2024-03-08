@@ -9,7 +9,6 @@ pipeline {
     agent any
     tools {
         nodejs "Node-21"
-        // git 'git'
     }
     environment {
         // Define AWS EC2 details
@@ -26,7 +25,7 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                    git branch: 'main', credentialsId: 'jenkins-github-private-repo-ssh-key', url: 'git@github.com:Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2.git', timeout: 30
+                    git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', timeout: 30
                 }
             }
         }
