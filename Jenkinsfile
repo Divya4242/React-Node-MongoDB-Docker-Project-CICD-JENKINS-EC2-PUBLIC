@@ -25,7 +25,7 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                    git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', timeout: 30
+                    git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', ref: 'refs/tags/v0.1.0', timeout: 30
                 }
             }
         }
