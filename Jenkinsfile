@@ -26,7 +26,7 @@ pipeline {
                 // Checkout the source code from your Git repository
                script {
                     // git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', ref: 'refs/tags/v0.1.0', timeout: 30
-                    sh "curl -LJO -H 'Authorization: token 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' https://api.github.com/repos/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/releases/tags/v0.1.0/assets/v0.1.0.zip"
+                    sh "curl -LJO -H 'Authorization: token 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' https://api.github.com/repos/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/releases/tags/v0.1.0/assets/v0.1.0.tar.gz"
                    // sh "wget -q --show-progress --auth-no-challenge --header='Accept:application/octet-stream' https://api.github.com/repos/Divya4242/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/releases/tags/v0.1.0/assets/v0.1.0.zip?access_token=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"
                 }
             }
