@@ -4,4 +4,4 @@
 ## This streamlined workflow ensures efficient continuous integration and delivery, allowing for rapid updates and deployments in response to changes in the GitHub repository.
 
 ### Required Plugins: SSH Agent plugin, node js, Docker pipeline
-### Create Credentials: dockerhub, github.
+### Create Credentials: dockerhub, github..
