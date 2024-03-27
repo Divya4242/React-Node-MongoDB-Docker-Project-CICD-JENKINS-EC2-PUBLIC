@@ -36,6 +36,7 @@ const Hello = () => {
       console.error(error)
     }
   };
+  
   return (
     <>
       <input
@@ -76,6 +77,5 @@ const Hello = () => {
     </>
   );
 }
-
 
 export default Hello
