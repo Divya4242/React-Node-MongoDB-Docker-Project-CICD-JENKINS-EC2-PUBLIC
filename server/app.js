@@ -20,7 +20,7 @@ app.get('/health',(req,res)=>{
     res.send("All Good");
 })
 
-app.post("/add",(req,res)=>{
+app.post("/addx",(req,res)=>{
     const {num1, num2} = req.body;
     const result = Number(num1) + Number(num2)
     res.status(200).send({
