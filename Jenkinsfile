@@ -47,6 +47,11 @@ pipeline {
                 }
             }
         }
+
+        stage('Initialize') {
+                def dockerHome = tool 'Docker-21'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         
         stage('Build and push Docker Image') {
             steps {
