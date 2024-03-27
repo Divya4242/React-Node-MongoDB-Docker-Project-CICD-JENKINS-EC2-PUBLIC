@@ -20,6 +20,22 @@ const Hello = () => {
       console.error(error)
     }
   };
+
+  const sub = async () => {
+    try {
+      const response = await fetch('http://3.110.207.104:5000/sub',{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({"num1": Number(num1), "num2": Number(num2)})
+      });
+      const data = await response.json()
+      if(data.result){
+        SetAns(data.result)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  };
   return (
     <>
       <input
@@ -45,7 +61,16 @@ const Hello = () => {
         }}
         className="btn btn-primary btn-block mb-3 "
       >
-        Summm
+        Sum
+      </button>
+       <button
+        type="submit"
+        onClick={(e) => {
+          sum(e);
+        }}
+        className="btn btn-primary btn-block mb-3 "
+      >
+        Subtraction
       </button>
       <h2>Ans {ans}</h2>
     </>
