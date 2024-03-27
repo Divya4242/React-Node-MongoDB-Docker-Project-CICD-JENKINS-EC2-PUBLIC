@@ -28,7 +28,7 @@ pipeline {
                     def tag = 'your_tag_here'
                     
                     // Checkout the specific tag
-                    checkout([$class: 'GitSCM', branches: [[name: "refs/tags/v0.1.0"]], userRemoteConfigs: [[url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: "refs/tags/v26"]], userRemoteConfigs: [[url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git']]])
                     // git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', credentialsId: 'github-id' // Provide your Git credentials ID here
                     // git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', ref: 'refs/tags/v0.1.0', timeout: 30
                     //sh "curl -LJO -H 'Authorization: token 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' https://api.github.com/repos/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/releases/tags/v0.1.0/assets/v0.1.0.tar.gz"
