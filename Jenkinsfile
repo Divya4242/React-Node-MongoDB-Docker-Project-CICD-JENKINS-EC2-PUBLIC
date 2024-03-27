@@ -12,7 +12,7 @@ pipeline {
     }
     environment {
         // Define AWS EC2 details
-        EC2_HOST = '65.0.87.100'
+        EC2_HOST = '3.110.207.104'
         EC2_USER = 'ubuntu'
         PRIVATE_KEY = '/var/lib/jenkins/nginx-keypair.pem'
         
