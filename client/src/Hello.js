@@ -63,6 +63,7 @@ const Hello = () => {
       >
         Sum
       </button>
+      <h2>Ans {ans}</h2>
       //  <button
       //   type="submit"
       //   onClick={(e) => {
@@ -72,7 +73,6 @@ const Hello = () => {
       // >
       //   Subtraction
       // </button>
-      <h2>Ans {ans}</h2>
     </>
   );
 }
