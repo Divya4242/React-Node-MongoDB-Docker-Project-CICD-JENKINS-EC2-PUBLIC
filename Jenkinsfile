@@ -25,7 +25,7 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                    def tag = 'v32'
+                    def tag = 'v36'
                     
                     // Checkout the specific tag
                     checkout([$class: 'GitSCM', branches: [[name: "refs/tags/${tag}"]], userRemoteConfigs: [[url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git']]])
