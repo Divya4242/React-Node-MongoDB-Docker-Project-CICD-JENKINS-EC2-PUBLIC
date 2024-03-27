@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 var cors = require('cors')
 app.use(cors({                                                                                                                 
-    origin: [ 'http://65.0.87.100', 'http://65.0.87.100:3000' ,'*' ]                                                
+    origin: [ 'http://3.110.207.104', 'http://3.110.207.104:3000' ,'*' ]                                                
 }))
 
 app.use(express.json());
