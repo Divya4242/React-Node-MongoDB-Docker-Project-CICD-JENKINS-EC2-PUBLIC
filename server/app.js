@@ -15,6 +15,7 @@ console.log("Server started");
 app.get('/',(req,res)=>{
         res.send("Hello");
 })
+
 app.get('/health',(req,res)=>{
     res.status(200);
     res.send("All Good");
