@@ -52,6 +52,7 @@ pipeline {
             steps {
                 script {
                      // Build Docker image for Node Backend
+                    sh 'whoami'
                     dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackend", " ./server")
                     docker.withRegistry( '', 'docker-id' ) {  
                         dockerImage.push("nodebackend")
