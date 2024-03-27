@@ -7,7 +7,7 @@ const Hello = () => {
 
   const sum = async () => {
     try {
-      const response = await fetch('http://3.110.207.104:5000/addx',{
+      const response = await fetch('http://3.110.207.104:5000/add',{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({"num1": Number(num1), "num2": Number(num2)})
