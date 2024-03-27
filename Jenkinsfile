@@ -54,9 +54,9 @@ pipeline {
                 script {
                      // Build Docker image for Node Backend
                     sh 'whoami'
-                    dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackenddd", " ./server")
+                    dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackend", " ./server")
                     docker.withRegistry( '', 'docker-id' ) {  
-                        dockerImage.push("nodebackend")
+                        dockerImage.push("nodebackendd")
                     }
                 }
             }
@@ -68,7 +68,7 @@ pipeline {
                     // This command will delete any contianer running on 5000 so this new docker container run easily.
                     def commands = """
                         docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
-                        docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackenddd
+                        docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackendd
                     """
                     // SSH into EC2 instance and pull Docker image
                     sshagent(['ec2-ssh']) {
