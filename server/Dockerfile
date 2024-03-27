@@ -1,11 +1,11 @@
 FROM node:18-alpine as builder
-WORKDIR /backend-docker-example/
+WORKDIR /backend-docker-examplee/
 EXPOSE 5000
 
 COPY package*.json /backend-docker-example/
 RUN npm install
 ENV FRONTEND_URL=http://localhost:4000
-COPY app.js  /backend-docker-example/app.js
+COPY app.js  /backend-docker-examplee/app.js
 CMD [ "npm", "start" ]
 
 #Production Stage
