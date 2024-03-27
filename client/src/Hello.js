@@ -66,7 +66,7 @@ const Hello = () => {
        <button
         type="submit"
         onClick={(e) => {
-          sum(e);
+          sub(e);
         }}
         className="btn btn-primary btn-block mb-3 "
       >
