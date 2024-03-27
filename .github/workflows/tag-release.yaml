@@ -37,4 +37,5 @@ jobs:
             Release ${{ github.run_number }}
           draft: false
           prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
