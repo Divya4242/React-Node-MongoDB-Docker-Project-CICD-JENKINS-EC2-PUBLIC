@@ -25,11 +25,11 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                   // Checkout to tag
-                    // def tag = 'v36'
+                   // if you want to Checkout to tag USE this.
+                    // def Specifictag = 'v36' if you want to checkout to specific tag uncomment this and change to [name: "refs/tags/${Specifictag}"]],.
                     def latestTag = sh(script: 'git describe --tags $(git rev-list --tags --max-count=1)', returnStdout: true).trim()
                     checkout([$class: 'GitSCM', branches: [[name: "refs/tags/${latestTag}"]], userRemoteConfigs: [[url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git']]])
-                   // CHeckout to branch
+                   // if you want to Checkout to branch USE this.
                     // git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', credentialsId: 'github-id' // Provide your Git credentials ID here
                 }
             }
