@@ -45,7 +45,7 @@ const Hello = () => {
         }}
         className="btn btn-primary btn-block mb-3 "
       >
-        Summ
+        Summm
       </button>
       <h2>Ans {ans}</h2>
     </>
