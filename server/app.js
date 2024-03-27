@@ -28,7 +28,6 @@ app.post("/add",(req,res)=>{
     });
 })
 
-
 // app.post("/sub",(req,res)=>{
 //     const {num1, num2} = req.body;
 //     const result = Number(num1) - Number(num2)
