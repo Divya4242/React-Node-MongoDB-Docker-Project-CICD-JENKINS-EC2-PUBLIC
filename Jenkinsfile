@@ -12,7 +12,7 @@ pipeline {
     }
     environment {
         // Define AWS EC2 details
-        EC2_HOST = '3.110.207.104'
+        EC2_HOST = '65.1.248.118'
         EC2_USER = 'ubuntu'
         PRIVATE_KEY = '/var/lib/jenkins/nginx-keypair.pem'
         
@@ -25,11 +25,7 @@ pipeline {
             steps {
                 // Checkout the source code from your Git repository
                script {
-                    git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', credentialsId: 'github-id', // Provide your Git credentials ID here
-                    changelog: false, 
-                    poll: false, 
-                    ref: 'v0.1.0', // Specific tag you want to checkout
-                    timeout: 30
+                    git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', credentialsId: 'github-id' // Provide your Git credentials ID here
                     // git branch: 'main', url: 'https://github.com/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC.git', ref: 'refs/tags/v0.1.0', timeout: 30
                     //sh "curl -LJO -H 'Authorization: token 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' https://api.github.com/repos/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/releases/tags/v0.1.0/assets/v0.1.0.tar.gz"
                    // sh "wget -q --show-progress --auth-no-challenge --header='Accept:application/octet-stream' https://api.github.com/repos/Divya4242/Divya4242/React-Node-Docker-Project-CICD-JENKINS-EC2-PUBLIC/releases/tags/v0.1.0/assets/v0.1.0.zip?access_token=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"
@@ -58,7 +54,7 @@ pipeline {
                 script {
                      // Build Docker image for Node Backend
                     sh 'whoami'
-                    dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackend", " ./server")
+                    dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackenddd", " ./server")
                     docker.withRegistry( '', 'docker-id' ) {  
                         dockerImage.push("nodebackend")
                     }
@@ -72,7 +68,7 @@ pipeline {
                     // This command will delete any contianer running on 5000 so this new docker container run easily.
                     def commands = """
                         docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
-                        docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackend
+                        docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackenddd
                     """
                     // SSH into EC2 instance and pull Docker image
                     sshagent(['ec2-ssh']) {
