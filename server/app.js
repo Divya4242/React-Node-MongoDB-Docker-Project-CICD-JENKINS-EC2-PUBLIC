@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 var cors = require('cors')
 app.use(cors({                                                                                                                 
-    origin: [ 'http://65.1.248.118', 'http://65.1.248.118:3000' ,'*' ]                                                                                        
+    origin: [ 'https://tag.devopswithdivya.me/' , '*' ]                                                                                        
 }))
 
 app.use(express.json());
