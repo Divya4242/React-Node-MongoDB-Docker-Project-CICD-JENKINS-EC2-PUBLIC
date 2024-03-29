@@ -7,7 +7,7 @@ const Hello = () => {
 
   const sum = async () => {
     try {
-      const response = await fetch('http://65.1.248.118:5000/add',{
+      const response = await fetch('https://backend.devopswithdivya.me/add',{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({"num1": Number(num1), "num2": Number(num2)})
@@ -23,7 +23,7 @@ const Hello = () => {
 
   const sub = async () => {
     try {
-      const response = await fetch('http://65.1.248.118:5000/sub',{
+      const response = await fetch('https://backend.devopswithdivya.me/sub',{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({"num1": Number(num1), "num2": Number(num2)})
