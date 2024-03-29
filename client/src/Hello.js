@@ -21,21 +21,21 @@ const Hello = () => {
     }
   };
 
-  const sub = async () => {
-    try {
-      const response = await fetch('https://backend.devopswithdivya.me/sub',{
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({"num1": Number(num1), "num2": Number(num2)})
-      });
-      const data = await response.json()
-      if(data.result){
-        SetAns(data.result)
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  };
+  // const sub = async () => {
+  //   try {
+  //     const response = await fetch('https://backend.devopswithdivya.me/sub',{
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({"num1": Number(num1), "num2": Number(num2)})
+  //     });
+  //     const data = await response.json()
+  //     if(data.result){
+  //       SetAns(data.result)
+  //     }
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // };
   
   return (
     <>
