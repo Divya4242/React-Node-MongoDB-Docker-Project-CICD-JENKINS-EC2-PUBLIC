@@ -2,12 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 var cors = require('cors')
-app.use(cors())
+app.use(cors({
+        origin: [ 'https://tag.devopswithdivya.me/' , 'https://tag.devopswithdivya.me' , '*'  ]
+}))
 
 app.use(express.json());
-// const _dirname = path.dirname("");
-// const buildpath = path.join(_dirname, "../client/build")
-// app.use(express.static(buildpath));
 
 console.log("Server started");
 app.get('/',(req,res)=>{
