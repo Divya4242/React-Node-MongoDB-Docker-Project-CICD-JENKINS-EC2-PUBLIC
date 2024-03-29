@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 var cors = require('cors')
 app.use(cors({                                                                                                                 
-    origin: [ 'https://tag.devopswithdivya.me/' ]                                                                                        
+    origin: [ 'https://tag.devopswithdivya.me' ]                                                                                        
 }))
 
 app.use(express.json());
