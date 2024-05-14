@@ -57,6 +57,7 @@ pipeline {
                 script {
                      // Build Docker image for Node Backend
                     sh 'whoami'
+                    sh 'node -v'
                     dockerImage = docker.build("${DOCKER_IMAGE_NAME}:backendjenkins", " ./server")
                     docker.withRegistry( '', 'docker-id' ) {  
                         dockerImage.push("backendjenkins")
