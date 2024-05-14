@@ -1,0 +1,41 @@
+# name: Create Release
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
+
+# jobs:
+#   create_release:
+#     name: Create Release
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Create Release Tag
+#         run: |
+#           git config --global user.email "divyakpatel42@gmail.com"
+#           git config --global user.name "divya4242"
+#           # Get the latest commit hash
+#           commit_hash=$(git rev-parse HEAD)
+          
+#           # Create a tag
+#           git tag -a v${{ github.run_number }} -m "Release ${{ github.run_number }}"
+          
+#           # Push the tag to GitHub
+#           git push origin --tags
+
+#       - name: Create Release
+#         uses: actions/create-release@v1
+#         id: create_release
+#         with:
+#           tag_name: v${{ github.run_number }}
+#           release_name: Release ${{ github.run_number }}
+#           body: |
+#             Release ${{ github.run_number }}
+#           draft: false
+#           prerelease: false
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
