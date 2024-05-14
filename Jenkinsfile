@@ -8,9 +8,9 @@
 // Create Credentials: dockerhub, github, ec2-ssh(line no. 77)
 pipeline {
     agent any
-    //tools {
-     //   nodejs "Node-21"
-    //}
+    tools {
+        nodejs "Node-21"
+    }
     environment {
         // Define AWS EC2 details
         EC2_HOST = '43.204.144.21'
