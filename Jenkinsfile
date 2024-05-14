@@ -65,7 +65,16 @@ pipeline {
                 }
             }
         }        
-        
+
+        stage('start') {
+            steps {
+                script {
+                     // Build Docker image for Node Backend
+                    sh 'cd reactapp/client && npm install '
+                    sh 'node -v'
+                }
+            }
+        }
         stage('Run Docker Image on AWS EC2') {
             steps {
                 script {
