@@ -78,7 +78,7 @@ pipeline {
                         npm -v
                         npm install
                         cd 
-                        docker rmi -f divyapatel42/jenkins-backend-project || true
+                        docker rmi -f divyapatel42/jenkins-backend-project:nodebackend || true
                         docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
                         docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackend
                     """
