@@ -13,12 +13,12 @@ pipeline {
     }
     environment {
         // Define AWS EC2 details
-        EC2_HOST = '13.232.78.204'
+        EC2_HOST = '43.204.144.21'
         EC2_USER = 'ubuntu'
         PRIVATE_KEY = '/var/lib/jenkins/nginx-keypair.pem'
         
         // Define Docker Hub details
-        DOCKER_IMAGE_NAME = 'divyapatel42/jenkins-backend-project'
+        DOCKER_IMAGE_NAME = 'divyapatel42/ecommerce-webapp'
     }
 
     stages {
@@ -57,9 +57,9 @@ pipeline {
                 script {
                      // Build Docker image for Node Backend
                     sh 'whoami'
-                    dockerImage = docker.build("${DOCKER_IMAGE_NAME}:nodebackend", " ./server")
+                    dockerImage = docker.build("${DOCKER_IMAGE_NAME}:backendjenkins", " ./server")
                     docker.withRegistry( '', 'docker-id' ) {  
-                        dockerImage.push("nodebackend")
+                        dockerImage.push("backendjenkins")
                     }
                 }
             }
