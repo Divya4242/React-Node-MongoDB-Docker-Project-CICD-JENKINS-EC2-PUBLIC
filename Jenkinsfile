@@ -71,6 +71,7 @@ pipeline {
                     // This command will delete any contianer running on 5000 so this new docker container run easily.
                     def commands = """
                         cd reactapp/client
+                        whoami
                         pwd
                         ls
                         node -v
