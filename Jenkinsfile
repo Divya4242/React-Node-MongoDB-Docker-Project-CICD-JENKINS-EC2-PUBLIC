@@ -75,9 +75,9 @@ pipeline {
                         sudo rm -r /var/www/build/
                         sudo mv build/ /var/www/
                         cd 
-                        docker rmi -f divyapatel42/jenkins-backend-project:nodebackend || true
+                        docker rmi -f divyapatel42/ecommerce-webapp:backendjenkins || true
                         docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
-                        docker run -d -p 5000:5000 divyapatel42/jenkins-backend-project:nodebackend
+                        docker run -d -p 5000:5000 divyapatel42/ecommerce-webapp:backendjenkins
                     """
                     // SSH into EC2 instance and pull Docker image
                     sshagent(['ec2-ssh']) {
