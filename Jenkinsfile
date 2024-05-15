@@ -76,7 +76,7 @@ pipeline {
                         sudo mv build/ /var/www/
                         cd 
                         docker rmi -f divyapatel42/ecommerce-webapp:backendjenkins || true
-                        docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
+                        docker rm -f \$(docker ps -q --filter "publish=8000/tcp")
                         docker run -d -p 8000:8000 divyapatel42/ecommerce-webapp:backendjenkins
                     """
                     // SSH into EC2 instance and pull Docker image
