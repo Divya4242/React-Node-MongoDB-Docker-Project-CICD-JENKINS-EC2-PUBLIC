@@ -70,6 +70,10 @@ pipeline {
                     def commands = """
                         cd reactapp/client
                         npm install
+                        sudo rm -r build/
+                        npm run build
+                        sudo rm -r /var/www/build/
+                        sudo mv build/ /var/www/
                         cd 
                         docker rmi -f divyapatel42/jenkins-backend-project:nodebackend || true
                         docker rm -f \$(docker ps -q --filter "publish=5000/tcp")
